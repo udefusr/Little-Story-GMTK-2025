@@ -1,0 +1,4 @@
+[background arg="res://images/managing_task.png" fade="0.0"]
+You started managing the tasks
+assign the corect task for each team member
+[signal arg="audio_stop"]

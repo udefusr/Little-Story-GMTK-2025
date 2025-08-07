@@ -1,0 +1,11 @@
+[background fade="0.0"]
+After working together, You team began to feel a little bit overwhelmed
+- Step in
+	You Stepped in
+	player: Hey everyone. Why don't you we plan it out first on who is  going to what
+	Everybody agreed
+	[signal arg="task_management_event"]
+- Leave them be
+	So, You know what happens now, right?
+	Ah shit! Here we go again
+	[signal arg="loop_reset"]

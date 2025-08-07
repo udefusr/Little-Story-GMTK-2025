@@ -1,0 +1,13 @@
+[sound path="res://audio/villager-hmmm.wav" volume="0.0"]
+artist: We should start with the art style. Visual identity is everything.
+artist: You want pixel art, right? But… that’s so *done*.
+- We need something efficient.
+	artist: Efficient? This isn’t a spreadsheet.
+	do Global.update_artist(-1)
+- Your style is amazing. Let’s try your way.
+	artist: Hm. Finally, someone gets it.
+	do Global.update_artist(1)
+- Let’s compromise on stylized pixel realism?
+	artist: That... could work. Maybe.
+	do Global.update_artist(0)
+do Global.update_global_interaction_count()

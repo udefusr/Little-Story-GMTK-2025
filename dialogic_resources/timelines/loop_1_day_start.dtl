@@ -1,0 +1,9 @@
+[background arg="res://images/gmtk-2025.png" fade="0.2"]
+join player leftmost
+player: Alright! Day 1 of the GMTK Game Jam! Let’s do this!
+player: Let’s check in on the others and see if they are ready to do this
+player: I'm so excited
+[wait time="1.2"]
+[background fade="0.0"]
+[sound path="res://audio/click_165.wav" volume="0.0"]
+log into your computer

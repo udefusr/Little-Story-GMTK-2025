@@ -1,0 +1,137 @@
+[gd_scene load_steps=15 format=3 uid="uid://d07j4qg7e14fq"]
+
+[ext_resource type="Script" uid="uid://4gmdagnmy4v1" path="res://scripts/game.gd" id="1_srcs1"]
+[ext_resource type="PackedScene" uid="uid://bbaipflirnthj" path="res://prefabs/bug_fixing.tscn" id="2_goyml"]
+[ext_resource type="PackedScene" uid="uid://bnwbqbbw1urnr" path="res://prefabs/np_cs.tscn" id="2_rwvjd"]
+[ext_resource type="Script" uid="uid://ce07ram7xt4s3" path="res://scenes/feedback_manager.gd" id="5_rwvjd"]
+[ext_resource type="PackedScene" uid="uid://cto5dbadvyr54" path="res://prefabs/interactable.tscn" id="6_1br5l"]
+[ext_resource type="FontFile" uid="uid://bwrwka5rd6pk4" path="res://fonts/pastel crayon.ttf" id="6_dodyt"]
+[ext_resource type="Script" uid="uid://drvyws24m55ty" path="res://scripts/burnout_meter.gd" id="6_es6ho"]
+[ext_resource type="Script" uid="uid://dc3gxcfdqaug" path="res://scripts/computer.gd" id="7_7ndc0"]
+[ext_resource type="PackedScene" uid="uid://djo2b75o7cjfh" path="res://prefabs/audio_stream_player.tscn" id="10_goyml"]
+[ext_resource type="PackedScene" uid="uid://c7apmxh3tp18v" path="res://prefabs/bg.tscn" id="11_1br5l"]
+[ext_resource type="Script" uid="uid://dvcncj8jc73l0" path="res://scripts/audio_bg.gd" id="11_rwvjd"]
+
+[sub_resource type="Animation" id="Animation_dodyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/ColorRect2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.105)]
+}
+
+[sub_resource type="Animation" id="Animation_srcs1"]
+resource_name = "burnout_meter_filling_up"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/ColorRect2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(2.21914, 0.225313),
+"update": 0,
+"values": [Vector2(1, 0.105), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.93333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_burnout_filled"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dodyt"]
+_data = {
+&"RESET": SubResource("Animation_dodyt"),
+&"burnout_meter_filling_up": SubResource("Animation_srcs1")
+}
+
+[node name="day_2" type="Node2D" node_paths=PackedStringArray("task_management", "burnout_meter")]
+script = ExtResource("1_srcs1")
+time_to_start = "day_2_start"
+task_management = NodePath("BugFixing")
+burnout_meter = NodePath("MainCanvas/BurnoutMeter")
+
+[node name="NPCs" parent="." instance=ExtResource("2_rwvjd")]
+visible = true
+
+[node name="MainCanvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="FeedbackManager" type="Node" parent="MainCanvas"]
+script = ExtResource("5_rwvjd")
+
+[node name="BurnoutMeter" type="Node" parent="MainCanvas" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("6_es6ho")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="MainCanvas/BurnoutMeter"]
+offset_left = 36.0
+offset_top = 48.0
+offset_right = 76.0
+offset_bottom = 210.0
+
+[node name="ColorRect2" type="ColorRect" parent="MainCanvas/BurnoutMeter/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -158.0
+offset_right = 15.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.105)
+pivot_offset = Vector2(15, 154)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainCanvas/BurnoutMeter"]
+libraries = {
+&"": SubResource("AnimationLibrary_dodyt")
+}
+
+[node name="Label" type="Label" parent="MainCanvas/BurnoutMeter"]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 173.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("6_dodyt")
+theme_override_font_sizes/font_size = 23
+text = "Team's Burnout"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="computer" parent="." instance=ExtResource("6_1br5l")]
+z_index = -35
+position = Vector2(810, 392)
+script = ExtResource("7_7ndc0")
+interactable = false
+
+[node name="BugFixing" parent="." instance=ExtResource("2_goyml")]
+visible = false
+
+[node name="Audio_BG" parent="." instance=ExtResource("10_goyml")]
+unique_name_in_owner = true
+script = ExtResource("11_rwvjd")
+
+[node name="BG" parent="." instance=ExtResource("11_1br5l")]

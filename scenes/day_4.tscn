@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://cwwhjtxk26vms"]
+
+[ext_resource type="Script" uid="uid://4gmdagnmy4v1" path="res://scripts/game.gd" id="1_4do2j"]
+[ext_resource type="Script" uid="uid://ce07ram7xt4s3" path="res://scenes/feedback_manager.gd" id="4_8yui8"]
+[ext_resource type="PackedScene" uid="uid://bnwbqbbw1urnr" path="res://prefabs/np_cs.tscn" id="5_btmwq"]
+[ext_resource type="Script" uid="uid://drvyws24m55ty" path="res://scripts/burnout_meter.gd" id="5_f7epa"]
+[ext_resource type="FontFile" uid="uid://bwrwka5rd6pk4" path="res://fonts/pastel crayon.ttf" id="6_btmwq"]
+[ext_resource type="PackedScene" uid="uid://cto5dbadvyr54" path="res://prefabs/interactable.tscn" id="7_i6cll"]
+[ext_resource type="Script" uid="uid://dc3gxcfdqaug" path="res://scripts/computer.gd" id="8_0ia66"]
+[ext_resource type="PackedScene" uid="uid://c7apmxh3tp18v" path="res://prefabs/bg.tscn" id="9_4do2j"]
+[ext_resource type="PackedScene" uid="uid://bbaipflirnthj" path="res://prefabs/bug_fixing.tscn" id="9_pyhae"]
+[ext_resource type="PackedScene" uid="uid://djo2b75o7cjfh" path="res://prefabs/audio_stream_player.tscn" id="10_ib1th"]
+[ext_resource type="AudioStream" uid="uid://bevmfgupxrg3a" path="res://audio/glitchy-harp-c-major.wav" id="11_7wh2u"]
+[ext_resource type="Texture2D" uid="uid://nh2l27ccuv5s" path="res://images/crumpled_stained_old_paper.jpg" id="12_8yui8"]
+[ext_resource type="Texture2D" uid="uid://l1fk20s4hm0c" path="res://images/computer.png" id="13_f7epa"]
+
+[sub_resource type="Animation" id="Animation_dodyt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/ColorRect2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.105)]
+}
+
+[sub_resource type="Animation" id="Animation_srcs1"]
+resource_name = "burnout_meter_filling_up"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/ColorRect2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(2.21914, 0.225313),
+"update": 0,
+"values": [Vector2(1, 0.105), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.93333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_burnout_filled"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dodyt"]
+_data = {
+&"RESET": SubResource("Animation_dodyt"),
+&"burnout_meter_filling_up": SubResource("Animation_srcs1")
+}
+
+[node name="day_4" type="Node2D" node_paths=PackedStringArray("task_management", "burnout_meter", "lightFG")]
+script = ExtResource("1_4do2j")
+time_to_start = "day_4_start"
+task_management = NodePath("BugFixing")
+burnout_meter = NodePath("MainCanvas/BurnoutMeter")
+lightFG = NodePath("PointLight2D")
+
+[node name="MainCanvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="FeedbackManager" type="Node" parent="MainCanvas"]
+script = ExtResource("4_8yui8")
+
+[node name="BurnoutMeter" type="Node" parent="MainCanvas" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("5_f7epa")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="MainCanvas/BurnoutMeter"]
+visible = false
+offset_left = 36.0
+offset_top = 48.0
+offset_right = 76.0
+offset_bottom = 210.0
+
+[node name="ColorRect2" type="ColorRect" parent="MainCanvas/BurnoutMeter/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -158.0
+offset_right = 15.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.105)
+pivot_offset = Vector2(15, 154)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainCanvas/BurnoutMeter"]
+libraries = {
+&"": SubResource("AnimationLibrary_dodyt")
+}
+
+[node name="Label" type="Label" parent="MainCanvas/BurnoutMeter"]
+visible = false
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 173.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("6_btmwq")
+theme_override_font_sizes/font_size = 23
+text = "Team's Burnout"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NPCs" parent="." instance=ExtResource("5_btmwq")]
+
+[node name="computer" parent="." instance=ExtResource("7_i6cll")]
+z_index = -35
+position = Vector2(809, 402)
+script = ExtResource("8_0ia66")
+
+[node name="BugFixing" parent="." instance=ExtResource("9_pyhae")]
+visible = false
+
+[node name="BG" parent="." instance=ExtResource("9_4do2j")]
+
+[node name="Audio_BG" parent="." instance=ExtResource("10_ib1th")]
+unique_name_in_owner = true
+stream = ExtResource("11_7wh2u")
+pitch_scale = 0.73
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(522, 408)
+energy = 0.68
+blend_mode = 2
+range_layer_min = -512
+range_layer_max = 512
+texture = ExtResource("12_8yui8")
+texture_scale = 1.44
+height = 395.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(498, 373)
+energy = 2.68
+blend_mode = 2
+texture = ExtResource("13_f7epa")
+height = 256.0

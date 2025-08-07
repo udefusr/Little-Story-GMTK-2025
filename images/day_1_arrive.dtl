@@ -1,0 +1,6 @@
+[background fade="0.0"]
+They all arrived at your house
+You let them in
+[signal arg="team_arrived"]
+player: So, Here we are now
+player: Let's get started

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://djo2b75o7cjfh"]
+
+[ext_resource type="AudioStream" uid="uid://do1yx5yrw8l00" path="res://audio/happy-background-music-orchestra-loop.mp3" id="1_4ebjm"]
+
+[node name="Audio_BG" type="AudioStreamPlayer"]
+stream = ExtResource("1_4ebjm")
+autoplay = true
+parameters/looping = true

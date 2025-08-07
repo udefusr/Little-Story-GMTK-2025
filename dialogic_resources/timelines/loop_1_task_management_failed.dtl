@@ -1,0 +1,6 @@
+[sound path="res://audio/cardboard_tension_04.wav" volume="0.0"]
+[background arg="res://images/working.png" fade="0.0"]
+Oh no!
+Wrong tasks got assigned to your team members and it's all a mess now
+player: ahh shit...
+[signal arg="loop_reset"]

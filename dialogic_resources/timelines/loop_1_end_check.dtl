@@ -1,0 +1,13 @@
+do Global.update_var_dialogic()
+if {from_script.artist} < 0.0:
+	jump loop1_everyone_leaves/
+elif {from_script.musician} < 0.0:
+	jump loop1_everyone_leaves/
+elif {from_script.programmer} < 0.0:
+	jump loop1_everyone_leaves/
+else:
+	[background arg="res://images/working.png" fade="0.2"]
+	[sound path="res://audio/frequency-modulation-coding.wav" volume="0.0"]
+	[wait time="2.0"]
+	[signal arg="loop_2"]
+	GREAT! LOOP 2 will start

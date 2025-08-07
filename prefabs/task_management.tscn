@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3uf0marc1sw2"]
+
+[ext_resource type="Script" uid="uid://d26qmn04rteyo" path="res://scripts/task_area.gd" id="1_e2nnp"]
+[ext_resource type="Script" uid="uid://dvfoleyiwqne0" path="res://scripts/task_management.gd" id="1_j0swt"]
+[ext_resource type="PackedScene" uid="uid://b0wko88ea1uch" path="res://prefabs/task.tscn" id="2_e2nnp"]
+[ext_resource type="FontFile" uid="uid://bwrwka5rd6pk4" path="res://fonts/pastel crayon.ttf" id="4_uxw7b"]
+[ext_resource type="AudioStream" uid="uid://cj4kd8paejgxg" path="res://audio/mini-table.wav" id="5_1rvr4"]
+[ext_resource type="Script" uid="uid://ottvwyaonkuw" path="res://scripts/hehe.gd" id="6_vc7sw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(6.32763, 6.62584)
+
+[node name="TaskManagement" type="Node2D" node_paths=PackedStringArray("task_areas")]
+visible = false
+script = ExtResource("1_j0swt")
+task_areas = [NodePath("Task_Area"), NodePath("Task_Area2")]
+total_tasks = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -30
+offset_right = 1005.0
+offset_bottom = 758.0
+mouse_filter = 2
+color = Color(0.193375, 0.179678, 0.155557, 1)
+
+[node name="Task_Area" type="Area2D" parent="."]
+position = Vector2(241, 263)
+scale = Vector2(14.2233, 13.2813)
+script = ExtResource("1_e2nnp")
+area_for = "artist"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Task_Area"]
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="ColorRect" type="ColorRect" parent="Task_Area"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Task_Area2" type="Area2D" parent="."]
+position = Vector2(718, 245)
+scale = Vector2(14.2233, 13.2813)
+script = ExtResource("1_e2nnp")
+area_for = "programmer"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Task_Area2"]
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="ColorRect" type="ColorRect" parent="Task_Area2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Task2" parent="." instance=ExtResource("2_e2nnp")]
+position = Vector2(468, 527)
+
+[node name="Task" parent="." instance=ExtResource("2_e2nnp")]
+position = Vector2(684, 287)
+task_name = "code"
+task_really_for = "programmer"
+task_label = "do some coding"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 212.0
+offset_top = 91.0
+offset_right = 254.0
+offset_bottom = 114.0
+text = "artist"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 673.0
+offset_top = 77.0
+offset_right = 772.0
+offset_bottom = 100.0
+text = "programmer"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 677.0
+offset_right = 955.0
+offset_bottom = 724.0
+theme_override_fonts/font = ExtResource("4_uxw7b")
+theme_override_font_sizes/font_size = 46
+text = "Press TAB when done"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("main_node")]
+stream = ExtResource("5_1rvr4")
+script = ExtResource("6_vc7sw")
+main_node = NodePath("..")

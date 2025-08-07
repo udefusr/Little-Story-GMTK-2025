@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsnm5ji25eikv"]
+
+[ext_resource type="Script" uid="uid://k34nds3kaem6" path="res://scripts/npc.gd" id="1_tnah1"]
+[ext_resource type="FontFile" uid="uid://bwrwka5rd6pk4" path="res://fonts/pastel crayon.ttf" id="2_1ov3m"]
+[ext_resource type="Texture2D" uid="uid://cuqp4uv8r5u1c" path="res://images/ohs.png" id="3_cuwdc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgp6g"]
+size = Vector2(186, 368)
+
+[node name="NPC" type="Area2D"]
+script = ExtResource("1_tnah1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sgp6g")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -212.0
+offset_right = 48.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1ov3m")
+theme_override_font_sizes/font_size = 36
+text = "NPC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -5)
+texture = ExtResource("3_cuwdc")
+region_enabled = true
+region_rect = Rect2(71.605, 130.203, 254.213, 407.996)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cto5dbadvyr54"]
+
+[ext_resource type="Script" uid="uid://d1oiyxgju8qdr" path="res://scripts/interactable.gd" id="1_ysexe"]
+[ext_resource type="Texture2D" uid="uid://l1fk20s4hm0c" path="res://images/computer.png" id="2_56pfg"]
+[ext_resource type="Shader" uid="uid://csqvd3w3hc0du" path="res://shaders/paper.gdshader" id="2_uujia"]
+[ext_resource type="AudioStream" uid="uid://2n81lgf5tyxu" path="res://audio/ui-hover-item.wav" id="4_oihpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(105, 112)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_56pfg"]
+shader = ExtResource("2_uujia")
+shader_parameter/paper_scale = 0.995
+shader_parameter/outline_thickness = 1.5
+shader_parameter/outline_color = Vector4(1, 1, 1, 1)
+shader_parameter/paper_blend_strength = 0.835
+shader_parameter/pixel_size = Vector2(0, -0.001)
+
+[node name="Interactable" type="Area2D"]
+script = ExtResource("1_ysexe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_sugp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_56pfg")
+position = Vector2(-1, 0)
+scale = Vector2(1.21348, 1.21348)
+texture = ExtResource("2_56pfg")
+region_enabled = true
+region_rect = Rect2(765.5, 353, 89, 95)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oihpt")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,13 @@
+[sound path="res://audio/villager-hmmm.wav" volume="0.0"]
+programmer: So. What's the scope?
+programmer: Please tell me it’s not another emotional platformer with voice acting.
+- It is. We’re doing voice acting again.
+	programmer: ...Of course it is.
+	do Global.update_programmer(-1)
+- This time we keep it tight. One mechanic.
+	programmer: Good. Let’s see if we stick to it.
+	do Global.update_programmer(0)
+- We can do a cool mechanic *and* a bit of story.
+	programmer: Huh. That’s surprisingly balanced.
+	do Global.update_programmer(1)
+do Global.update_global_interaction_count()

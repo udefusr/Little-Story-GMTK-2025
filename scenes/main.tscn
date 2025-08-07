@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3gu60paywvlq"]
+
+[ext_resource type="Script" uid="uid://4gmdagnmy4v1" path="res://scripts/game.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://ce07ram7xt4s3" path="res://scenes/feedback_manager.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c7apmxh3tp18v" path="res://prefabs/bg.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://cto5dbadvyr54" path="res://prefabs/interactable.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bnwbqbbw1urnr" path="res://prefabs/np_cs.tscn" id="4_tipki"]
+[ext_resource type="Script" uid="uid://dc3gxcfdqaug" path="res://scripts/computer.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://b3uf0marc1sw2" path="res://prefabs/task_management.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://djo2b75o7cjfh" path="res://prefabs/audio_stream_player.tscn" id="8_tipki"]
+
+[node name="main" type="Node2D" node_paths=PackedStringArray("task_management")]
+script = ExtResource("1_0wfyh")
+time_to_start = "loop_1_day_start"
+task_management = NodePath("TaskManagement")
+
+[node name="TaskManagement" parent="." instance=ExtResource("7_o6xl0")]
+
+[node name="BG" parent="." instance=ExtResource("3_tipki")]
+
+[node name="NPCs" parent="." instance=ExtResource("4_tipki")]
+
+[node name="MainCanvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="FeedbackManager" type="Node" parent="MainCanvas"]
+script = ExtResource("3_sugp2")
+
+[node name="computer" parent="." instance=ExtResource("4_jyhfs")]
+z_index = -35
+position = Vector2(809, 392)
+script = ExtResource("5_tbgi4")
+
+[node name="Audio_BG" parent="." instance=ExtResource("8_tipki")]
+unique_name_in_owner = true

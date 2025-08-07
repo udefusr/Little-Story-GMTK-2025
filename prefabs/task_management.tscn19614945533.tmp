@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3uf0marc1sw2"]
+
+[ext_resource type="Script" uid="uid://d26qmn04rteyo" path="res://scripts/task_area.gd" id="1_e2nnp"]
+[ext_resource type="Script" uid="uid://s6p6o26hcwb7" path="res://scripts/task.gd" id="2_j0swt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(6.32763, 6.62584)
+
+[node name="TaskManagement" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(241, 263)
+scale = Vector2(14.2233, 13.2813)
+script = ExtResource("1_e2nnp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Task" type="Area2D" parent="."]
+position = Vector2(688, 283)
+scale = Vector2(14.2233, 13.2813)
+script = ExtResource("2_j0swt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Task"]
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="ColorRect" type="ColorRect" parent="Task"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.986539, 0.624188, 1.15514e-06, 1)

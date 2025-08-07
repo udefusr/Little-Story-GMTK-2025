@@ -1,0 +1,31 @@
+[sound path="res://audio/click_165.wav" volume="0.0"]
+[background arg="res://images/mwasenger.png" fade="0.5"]
+You logged in to your old account and start asking your old friends if they are still available to help you with the gamejam
+You began messaging them and they started typing
+[sound path="res://audio/click_165.wav" volume="0.0"]
+[background arg="res://images/all_characters.png" fade="0.3"]
+artist: Yes
+programmer: Let's do it
+musician: I'm already talking with someone else about joining them bro
+[sound path="res://audio/beerbottlewhoo.ogg" volume="0.0"]
+musician: I'll let you know
+- Don't wait
+	- Convince
+		player: Some convincing text LMAO
+		musician: Alright. Count me in
+		jump day_1_arrive/
+		[end_timeline]
+	- Don't Convince
+		[background arg="res://images/working.png" fade="0.0"]
+		[sound path="res://audio/frequency-modulation-coding.wav" volume="0.0"]
+		You Started your work without musician
+		but you failed to deliver the game
+		[signal arg="loop_reset"]
+- Wait
+	You waited for musician for a long time ...
+	but no reply
+	[background arg="res://images/working.png" fade="0.0"]
+	[sound path="res://audio/frequency-modulation-coding.wav" volume="0.0"]
+	You Started your work without musician
+	but you failed to deliver the game
+	[signal arg="loop_reset"]

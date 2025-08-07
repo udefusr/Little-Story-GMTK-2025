@@ -1,0 +1,5 @@
+[sound path="res://audio/cardboard_tension_04.wav" volume="0.0"]
+Team burned out
+Now you have manage the tasks again for the bug fix report
+[signal arg="bugfix"]
+[signal arg="audio_stop"]

@@ -1,0 +1,10 @@
+[sound path="res://audio/success-sound.wav" volume="0.0"]
+[background arg="res://images/working.png" fade="0.0"]
+[sound path="res://audio/frequency-modulation-coding.wav" volume="0.0"]
+Well Done!
+You have managed to keep your team in one piece
+[background arg="res://images/day_transition.png" fade="0.4"]
+The day went by
+The Next day
+[wait time="1.0"]
+[signal arg="day_2"]

@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5ywj55e6n7y7"]
+
+[ext_resource type="FontFile" uid="uid://bwrwka5rd6pk4" path="res://fonts/pastel crayon.ttf" id="1_0w00v"]
+[ext_resource type="Script" uid="uid://bp0e6p8i58qc7" path="res://scripts/npc_feedback.gd" id="2_md41m"]
+
+[sub_resource type="Animation" id="Animation_md41m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.365, 0.365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0w00v"]
+resource_name = "npc_feedback_start"
+length = 1.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667),
+"transitions": PackedFloat32Array(1, 3.86374, 0.258816),
+"update": 0,
+"values": [Vector2(0.365, 0.365), Vector2(1.16, 1.16), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.65, 0.8885),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.866667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deleteMe"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d43mo"]
+_data = {
+&"RESET": SubResource("Animation_md41m"),
+&"npc_feedback_start": SubResource("Animation_0w00v")
+}
+
+[node name="Label" type="Label"]
+offset_left = 39.0
+offset_top = 35.0
+offset_right = 136.0
+offset_bottom = 58.0
+scale = Vector2(0.365, 0.365)
+theme_override_fonts/font = ExtResource("1_0w00v")
+theme_override_font_sizes/font_size = 56
+text = "Artist Happy"
+script = ExtResource("2_md41m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d43mo")
+}
+autoplay = "npc_feedback_start"

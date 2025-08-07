@@ -1,0 +1,31 @@
+[sound path="res://audio/success-sound.wav" volume="0.0"]
+Alright… we actually did it.
+programmer: Perfect. I already optimized the dialogue system last night.
+programmer: Let me fix those weird collision bugs next.
+[background arg="res://images/working.png" fade="0.0"]
+[sound path="res://audio/frequency-modulation-coding.wav" volume="0.0"]
+[wait time="1.5"]
+[background arg="res://images/drama.png" fade="0.0"]
+[signal arg="audio_stop"]
+[music path="res://audio/shadoks-swoosh-and-hit-2.wav" fade="0.0" volume="0.0"]
+[music path="res://audio/motional-original-soundtrack-forgiveness.wav" fade="0.0" volume="0.0"]
+artist: So why… why does it still feel heavy?
+player: What do you mean?
+artist: I mean...
+artist: I know we’re doing okay. But I don’t know* why *anymore.
+[sound path="res://audio/tehlikeboom.wav" volume="0.0"]
+musician: Hey… we’ve looped so many times.
+musician: Maybe we forgot the point?
+programmer: I thought the point was to finish.
+programmer: But I’m not sure I care anymore.
+player: Wait. Guys… We’re this close.
+artist: That’s the thing. We keep getting “close.”
+artist: But it never feels finished. Just… repeated.
+player: Are you all saying you’re giving up?
+musician: Not giving up. Just…
+[sound path="res://audio/rebooting-systems.wav" volume="0.0"]
+programmer: …Rebooting.
+artist: Maybe the problem isn’t the jam.
+artist: Maybe the problem is *us* trying to force it.
+player: Don’t do this—
+[signal arg="loop_reset_special"]

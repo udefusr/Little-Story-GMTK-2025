@@ -1,0 +1,7 @@
+[sound path="res://audio/password-fail-angry-beeps.wav" volume="0.0"]
+player: I don't think that went well.
+artist: I can’t work like this.
+musician: I'm not vibing with this project.
+programmer: Should’ve known this would happen.
+player: Wait, guys—!
+[signal arg="loop_reset"]
