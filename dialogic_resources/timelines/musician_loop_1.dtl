@@ -1,12 +1,12 @@
 [sound path="res://audio/villager-hmmm.wav" volume="0.0"]
 musician: Okay, okay — hear me out\: chiptune *meets* bossa nova *meets* field recordings.
-musician: Sound crazy? It’ll be genius.
-- That’s way too much.
+musician: Sound crazy? It'll be genius.
+- That's way too much.
 	musician: No respect for vision, huh?
 	do Global.update_musician(-1)
 - Love the energy! Can we start with a simple loop though?
 	Alright, alright. I can rein it in.
 	do Global.update_musician(0)
-- That sounds wild! Let’s do it!
+- That sounds wild! Let's do it!
 	do Global.update_musician(1)
 do Global.update_global_interaction_count()

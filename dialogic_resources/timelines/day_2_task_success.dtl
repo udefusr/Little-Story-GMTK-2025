@@ -12,20 +12,20 @@ programmer: Let me fix those weird collision bugs next.
 artist: So why… why does it still feel heavy?
 player: What do you mean?
 artist: I mean...
-artist: I know we’re doing okay. But I don’t know* why *anymore.
+artist: I know we're doing okay. But I don't know* why *anymore.
 [sound path="res://audio/tehlikeboom.wav" volume="0.0"]
-musician: Hey… we’ve looped so many times.
+musician: Hey… we've looped so many times.
 musician: Maybe we forgot the point?
 programmer: I thought the point was to finish.
-programmer: But I’m not sure I care anymore.
-player: Wait. Guys… We’re this close.
-artist: That’s the thing. We keep getting “close.”
+programmer: But I'm not sure I care anymore.
+player: Wait. Guys… We're this close.
+artist: That's the thing. We keep getting “close.”
 artist: But it never feels finished. Just… repeated.
-player: Are you all saying you’re giving up?
+player: Are you all saying you're giving up?
 musician: Not giving up. Just…
 [sound path="res://audio/rebooting-systems.wav" volume="0.0"]
 programmer: …Rebooting.
-artist: Maybe the problem isn’t the jam.
+artist: Maybe the problem isn't the jam.
 artist: Maybe the problem is *us* trying to force it.
-player: Don’t do this—
+player: Don't do this—
 [signal arg="loop_reset_special"]

@@ -8,6 +8,6 @@ Maybe I pushed them too hard.
 Or maybe… I forgot why I started this
 [background arg="res://images/realization.png" fade="0.2" transition="Push Up"]
 [sound path="res://audio/realizing-the-realization.wav" volume="0.0"]
-player: I’m just a little dev. I can’t force it.
+player: I'm just a little dev. I can't force it.
 [wait time="2.0" hide_text="false"]
 [signal arg="day_4"]

@@ -1,27 +1,27 @@
 Ahhh...
 player: Another day. Another loop.
-player: Except this time… I’m not even sure what I’m looping for
+player: Except this time… I'm not even sure what I'm looping for
 player: Maybe this is just it. No more team. No more game.
 [sound path="res://audio/impatient-doorbell-ringing.mp3" volume="0.0"]
 [wait time="0.5"]
 player: Who's that?
-Ahhh 
+Ahhh
 [wait time="2.0"]
 [music path="res://audio/ever-changing-instrumetal.mp3" fade="0.0" volume="0.0"]
 [signal arg="team_arrived"]
-artist: I wasn’t ready before. I kept thinking I had to make it *perfect*.
+artist: I wasn't ready before. I kept thinking I had to make it *perfect*.
 artist: But maybe done is better than perfect.
 musician: Hey. I missed the chaos.
 musician: I brought sound effects, 3 types of chips, and a half-finished combat theme.
 player: musician!?
 programmer: I ran some tests.
-programmer: If we don’t over-manage, the loop stabilizes. We just have to finish what we started.
+programmer: If we don't over-manage, the loop stabilizes. We just have to finish what we started.
 player: You guys… came back?
 artist: Not for the jam.
 musician: Not for the fame.
 [sound path="res://audio/realizing-the-realization.wav" volume="0.0"]
 programmer: For you.
-player: Then let’s finish this — together.
+player: Then let's finish this — together.
 [background arg="res://images/working.png" fade="0.2" transition="Push Up"]
 [sound path="res://audio/frequency-modulation-coding.wav" volume="0.0"]
 [wait time="3.0"]
